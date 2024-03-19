@@ -6,17 +6,11 @@
 //kad metai ne olimpiniai. Programa turi paprašyti įvesti metus, ir išvesti ar tai buvo //
 //olimpiniai metai ar ne, jei tai buvo olimpiniai metai programa turi taip pat išvesti ir numerį.// year = number(process.argv[2]);
 
-const year = Number(process.argv[2]);
+let metai = Number(process.argv[2]);
 
-function Olimpic(year) {
-    if (year < 1896)
-        return 'Metai ne olimpiniai';
+if (metai >= 1896 && (metai - 1896) % 4 === 0) {
+    let numeris = Math.floor((metai - 1896) / 4) + 1;
+    console.log(metai + " metai buvo olimpiniai, numeris: " + numeris + ".");
+} else {
+    console.log("Metai nebuvo olimpiniai.");
 }
-if (year >= 1896 && year % 4 !== 0) {
-    return 'Metai ne olimpiniai';
-}
-if (year >= 1896 && year % 4 === 0) {
-    return (year - 1896) / 4 + 1 + " " + "Olimpiniai metai";
-}
-
-console.log(Olimpic(year));
